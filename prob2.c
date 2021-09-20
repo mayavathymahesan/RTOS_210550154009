@@ -31,8 +31,8 @@ void two_task(void *data)
 }
 }
 void three_task(void *data)
-{   timer_handle=XTimweCreate("timer",(10000/portTICK_PERIOD_MS),pdFALSE,timer_id,callback);
-    xTimerStart(my_timer_handle,1);
+{   timer_handle=XTimerCreate("timer",pdMS_TO_TICK(10000),pdFALSE,timer_id,callback);
+    xTimerStart(timer_handle,0);
 
     while(1)
 {
